@@ -13,5 +13,21 @@ steps:
       - push
       - europe-west9-docker.pkg.dev/$PROJECT_ID/no-quarter/no-quarter:$SHORT_SHA
 
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    entrypoint: gcloud
+    args:
+      - run
+      - deploy
+      - no-quarter
+      - --image
+      - europe-west9-docker.pkg.dev/$PROJECT_ID/no-quarter/no-quarter:$SHORT_SHA
+      - --region
+      - europe-west9
+      - --platform
+      - managed
+      - --port
+      - "8080"
+      - --allow-unauthenticated
+
 images:
   - europe-west9-docker.pkg.dev/$PROJECT_ID/no-quarter/no-quarter:$SHORT_SHA
