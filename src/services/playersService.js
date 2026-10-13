@@ -1,4 +1,4 @@
-const PLAYERS_URL = '/violentometre/players.json'
+const PLAYERS_URL = 'https://pub-c09dd48630ba47d7b51837ed47512907.r2.dev/players.json'
 
 let playersPromise = null
 
