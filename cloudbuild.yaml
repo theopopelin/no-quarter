@@ -1,0 +1,17 @@
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - -f
+      - Dockerfile.prod
+      - -t
+      - europe-west9-docker.pkg.dev/$PROJECT_ID/no-quarter/no-quarter:$SHORT_SHA
+      - .
+
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - push
+      - europe-west9-docker.pkg.dev/$PROJECT_ID/no-quarter/no-quarter:$SHORT_SHA
+
+images:
+  - europe-west9-docker.pkg.dev/$PROJECT_ID/no-quarter/no-quarter:$SHORT_SHA
