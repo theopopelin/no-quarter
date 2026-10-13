@@ -1,0 +1,196 @@
+/* ========================================
+   HEADER
+======================================== */
+
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+  width: 100%;
+  height: 68px;
+  padding: 0 7%;
+
+  border-bottom: 1px solid #292e29;
+  background-color: rgba(11, 13, 12, 0.92);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* ========================================
+   NAVIGATION
+======================================== */
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  height: 100%;
+}
+
+.header-nav-link {
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  padding: 0;
+
+  border: none;
+  background: transparent;
+  color: #858b85;
+
+  font-family: monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-decoration: none;
+
+  cursor: pointer;
+  transition: color 180ms ease;
+}
+
+.header-nav-link:hover,
+.header-nav-link.active {
+  color: #F32E51;
+}
+
+/* ========================================
+   BRAND
+======================================== */
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  color: #e6e7e3;
+  text-decoration: none;
+
+  transition: color 180ms ease;
+}
+
+.brand-logo {
+  display: block;
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+
+  transition: filter 180ms ease;
+}
+
+.brand-name {
+  font-family: monospace;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+
+  transition: color 180ms ease;
+}
+
+.brand:hover .brand-name {
+  color: #F32E51;
+}
+
+/* ========================================
+   DISCORD CTA
+======================================== */
+
+.header-join {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 11px 18px;
+  border: 1px solid #F32E51;
+
+  background: #F32E51;
+  color: #0b0d0c;
+
+  font-family: monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-decoration: none;
+
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+.header-join:hover {
+  background: transparent;
+  color: #F32E51;
+}
+
+.header-join span {
+  font-size: 14px;
+}
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
+
+.brand:focus-visible,
+.header-join:focus-visible,
+.header-nav-link:focus-visible {
+  outline: 1px solid #F32E51;
+  outline-offset: 5px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand,
+  .brand-logo,
+  .brand-name,
+  .header-join,
+  .header-nav-link {
+    transition: none;
+  }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+  .app-header {
+    height: 60px;
+    padding: 0 6%;
+  }
+
+  .header-nav {
+    gap: 16px;
+  }
+
+  .brand {
+    gap: 8px;
+  }
+
+  .brand-logo {
+    width: 30px;
+    height: 30px;
+  }
+
+  .brand-name {
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  .header-nav-link {
+    font-size: 10px;
+    letter-spacing: 0.5px;
+  }
+
+  .header-join {
+    gap: 6px;
+    padding: 9px 10px;
+    font-size: 10px;
+  }
+}

@@ -1,0 +1,204 @@
+/* ========================================
+   MOST WANTED SECTION
+======================================== */
+
+.most-wanted {
+  padding: 35px 7% 55px;
+  border-top: 1px solid #292e29;
+}
+
+.most-wanted-heading {
+  margin-bottom: 24px;
+}
+
+.most-wanted-eyebrow {
+  margin: 0 0 14px;
+  color: #969e94;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+}
+
+.most-wanted-eyebrow span {
+  margin-right: 8px;
+  color: #F32E51;
+}
+
+.most-wanted-title {
+  margin: 0;
+  color: #e6e7e3;
+  font-size: clamp(24px, 4vw, 38px);
+  font-weight: 700;
+  letter-spacing: -1.5px;
+  line-height: 1.2;
+}
+
+.most-wanted-title span {
+  color: #F32E51;
+}
+
+/* ========================================
+   RECORDS GRID
+======================================== */
+
+.most-wanted-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+/* WANTED CARD */
+
+.wanted-card {
+  --wanted-color: #F32E51;
+
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 220px;
+  padding: 16px;
+
+  border: 1px solid #292e29;
+  background: #101310;
+
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease;
+}
+
+.wanted-card:hover {
+  border-color: var(--wanted-color);
+  background: #131713;
+}
+
+.wanted-card-top {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #292e29;
+}
+
+.wanted-label {
+  color: var(--wanted-color);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.wanted-id {
+  overflow-wrap: anywhere;
+  color: #596257;
+  font-size: 14px;
+}
+
+.wanted-card-content {
+  flex: 1;
+  padding: 18px 0;
+}
+
+.wanted-record-title {
+  margin: 0;
+  color: #e6e7e3;
+  font-size: 24px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.wanted-card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 14px;
+  border-top: 1px solid #292e29;
+}
+
+.wanted-score {
+  color: var(--wanted-color);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.wanted-match {
+  color: #969e94;
+  font-size: 9px;
+  text-decoration: none;
+}
+
+.wanted-match:hover {
+  color: var(--wanted-color);
+}
+
+/* ========================================
+   LOADING AND ERROR MESSAGES
+======================================== */
+
+.most-wanted-message {
+  padding: 24px 0;
+  color: #969e94;
+  font-size: 12px;
+}
+
+.most-wanted-message.error {
+  color: #F32E51;
+}
+
+/* ========================================
+   FOOTNOTE
+======================================== */
+
+.most-wanted-footnote {
+  margin: 15px 0 0;
+  color: #596257;
+  font-size: 9px;
+  letter-spacing: 0.4px;
+  line-height: 1.8;
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 850px) {
+  .most-wanted-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wanted-card {
+    min-height: 0;
+  }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+  .most-wanted {
+    padding: 30px 6% 40px;
+  }
+
+  .most-wanted-title {
+    font-size: clamp(22px, 6vw, 32px);
+    letter-spacing: -1px;
+  }
+
+  .wanted-record-title {
+    font-size: 17px;
+  }
+
+  .wanted-score {
+    font-size: 16px;
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .wanted-card {
+    transition: none;
+  }
+}

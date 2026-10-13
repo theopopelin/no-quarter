@@ -1,0 +1,379 @@
+/* ========================================
+   RANKING SECTION
+======================================== */
+
+.ranking-section {
+  padding: 35px 7% 70px;
+}
+
+.ranking-heading {
+  margin-bottom: 30px;
+}
+
+.ranking-eyebrow {
+  margin: 0 0 14px;
+  color: #969e94;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+}
+
+.ranking-eyebrow span {
+  margin-right: 8px;
+  color: #F32E51;
+}
+
+.ranking-title {
+  margin: 0;
+  color: #e6e7e3;
+  font-size: clamp(28px, 5vw, 46px);
+  font-weight: 700;
+  letter-spacing: -2px;
+  line-height: 1.2;
+}
+
+.ranking-title span {
+  color: #F32E51;
+}
+
+.ranking-description {
+  margin: 12px 0 0;
+  color: #969e94;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* ========================================
+   CONTROLS
+======================================== */
+
+.ranking-controls {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.ranking-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+  padding: 0 14px;
+  border: 1px solid #292e29;
+  background: #101310;
+}
+
+.ranking-search-icon {
+  color: #F32E51;
+  font-size: 20px;
+}
+
+.ranking-search input {
+  width: 100%;
+  min-width: 0;
+  padding: 13px 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #e6e7e3;
+  font: inherit;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+}
+
+.ranking-search input::placeholder {
+  color: #697267;
+}
+
+.ranking-search:focus-within {
+  border-color: #F32E51;
+}
+
+.ranking-sort {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid #292e29;
+}
+
+.ranking-sort-button {
+  padding: 0 14px;
+  border: 0;
+  background: #101310;
+  color: #858b85;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition:
+    color 180ms ease,
+    background-color 180ms ease;
+}
+
+.ranking-sort-button + .ranking-sort-button {
+  border-left: 1px solid #292e29;
+}
+
+.ranking-sort-button:hover {
+  color: #e6e7e3;
+}
+
+.ranking-sort-button.active {
+  background: #F32E51;
+  color: #0b0d0c;
+}
+
+/* ========================================
+   PLAYER LIST
+======================================== */
+
+.ranking-table {
+  border: 1px solid #292e29;
+  background: #101310;
+}
+
+.ranking-table-header,
+.ranking-player {
+  display: grid;
+  grid-template-columns: 70px minmax(0, 1fr) 130px;
+  align-items: center;
+  gap: 16px;
+}
+
+.ranking-table-header {
+  padding: 14px 20px;
+  border-bottom: 1px solid #292e29;
+  background: #131713;
+  color: #697267;
+  font-size: 9px;
+  letter-spacing: 0.8px;
+}
+
+.ranking-score-column {
+  text-align: right;
+}
+
+.ranking-player {
+  min-height: 76px;
+  padding: 14px 20px;
+  border-bottom: 1px solid #292e29;
+  transition: background-color 180ms ease;
+}
+
+.ranking-player:last-child {
+  border-bottom: 0;
+}
+
+.ranking-player:hover {
+  background: #131713;
+}
+
+.ranking-position {
+  color: #858b85;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.ranking-position-first {
+  color: #c5ff65;
+}
+
+.ranking-player-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.ranking-player-name {
+  overflow-wrap: anywhere;
+  color: #e6e7e3;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.ranking-player-region {
+  color: #697267;
+  font-size: 9px;
+  letter-spacing: 0.5px;
+}
+
+.ranking-player-score {
+  color: #F32E51;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ========================================
+   EMPTY STATE
+======================================== */
+
+.ranking-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 55px 20px;
+  text-align: center;
+}
+
+.ranking-empty-icon {
+  color: #F32E51;
+  font-size: 28px;
+}
+
+.ranking-empty-title {
+  margin: 16px 0 0;
+  color: #e6e7e3;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.ranking-empty-description {
+  margin: 10px 0 0;
+  color: #697267;
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+.ranking-footnote {
+  margin: 15px 0 0;
+  color: #596257;
+  font-size: 9px;
+  letter-spacing: 0.4px;
+  line-height: 1.8;
+}
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.ranking-sort-button:focus-visible {
+  outline: 1px solid #c5ff65;
+  outline-offset: -3px;
+}
+
+/* ========================================
+   ENTRY ANIMATION
+======================================== */
+
+.ranking-row-enter-active {
+  transition:
+    opacity 350ms ease,
+    transform 350ms ease;
+  transition-delay: calc(var(--row-index, 0) * 70ms);
+}
+
+.ranking-row-enter-from {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.ranking-row-enter-to {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Smooth reordering when changing sort */
+
+.ranking-row-move {
+  transition: transform 300ms ease;
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 800px) {
+  .ranking-controls {
+    flex-direction: column;
+  }
+
+  .ranking-search {
+    min-height: 44px;
+  }
+
+  .ranking-sort {
+    min-height: 42px;
+  }
+
+  .ranking-sort-button {
+    flex: 1;
+    padding: 12px 8px;
+  }
+}
+
+@media (max-width: 600px) {
+  .ranking-section {
+    padding: 30px 6% 45px;
+  }
+
+  .ranking-title {
+    font-size: clamp(25px, 7vw, 36px);
+    letter-spacing: -1px;
+  }
+
+  .ranking-table-header,
+  .ranking-player {
+    grid-template-columns: 38px minmax(0, 1fr) 90px;
+    gap: 10px;
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .ranking-table-header {
+    font-size: 8px;
+  }
+
+  .ranking-player {
+    min-height: 68px;
+  }
+
+  .ranking-player-name {
+    font-size: 15px;
+  }
+
+  .ranking-player-score {
+    font-size: 12px;
+  }
+
+  .ranking-sort-button {
+    font-size: 10px;
+    letter-spacing: 0;
+  }
+}
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .ranking-sort-button,
+  .ranking-player,
+  .ranking-row-enter-active,
+  .ranking-row-move {
+    transition: none;
+    transition-delay: 0ms;
+  }
+
+  .ranking-row-enter-from {
+    opacity: 1;
+    transform: none;
+  }
+}

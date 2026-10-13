@@ -1,0 +1,66 @@
+/* ========================================
+   HERO SECTION
+======================================== */
+
+.hero {
+  padding: 20px 7% 60px;
+}
+
+.hero-eyebrow {
+  margin: 0 0 24px;
+  color: #969e94;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  line-height: 1.8;
+}
+
+.hero-eyebrow span {
+  margin-right: 8px;
+  color: #F32E51;
+}
+
+.hero-title {
+  margin: 0;
+  color: #e6e7e3;
+  font-size: clamp(38px, 7vw, 76px);
+  font-weight: 700;
+  letter-spacing: -4px;
+  line-height: 1.1;
+  overflow-wrap: break-word;
+}
+
+.hero-title span {
+  color: #F32E51;
+}
+
+.hero-description {
+  max-width: 680px;
+  margin: 22px 0 0;
+  color: #969e94;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 60px 6% 45px;
+  }
+
+  .hero-eyebrow {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  .hero-title {
+    font-size: clamp(36px, 10vw, 54px);
+    letter-spacing: -2px;
+  }
+
+  .hero-description {
+    font-size: 12px;
+  }
+}

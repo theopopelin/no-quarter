@@ -1,0 +1,247 @@
+/* ========================================
+   VIOLENTOMETER SECTION
+======================================== */
+
+.violentometer {
+  padding: 35px 7% 55px;
+  border-top: 1px solid #292e29;
+}
+
+.violentometer-heading {
+  margin-bottom: 24px;
+}
+
+.violentometer-eyebrow {
+  margin: 0 0 14px;
+  color: #969e94;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+}
+
+.violentometer-eyebrow span {
+  margin-right: 8px;
+  color: #F32E51;
+}
+
+.violentometer-title {
+  margin: 0;
+  color: #e6e7e3;
+  font-size: clamp(24px, 4vw, 38px);
+  font-weight: 700;
+  letter-spacing: -1.5px;
+  line-height: 1.2;
+}
+
+.violentometer-title span {
+  color: #c5ff65;
+}
+
+.violentometer-description {
+  margin: 12px 0 0;
+  color: #969e94;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+/* ========================================
+   LEVELS
+======================================== */
+
+.violentometer-scale {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.violentometer-level {
+  --level-color: #78836f;
+
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) 100px;
+  align-items: center;
+  gap: 16px;
+  padding: 13px 16px;
+
+  border: 1px solid #292e29;
+  background: #101310;
+
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease;
+}
+
+.violentometer-level:hover {
+  border-color: var(--level-color);
+  background: #131713;
+}
+
+/* LEVEL COLORS */
+
+.level-low {
+  --level-color: #78836f;
+}
+
+.level-medium {
+  --level-color: #c5ff65;
+}
+
+.level-high {
+  --level-color: #ff9f43;
+}
+
+.level-extreme {
+  --level-color: #F32E51;
+}
+
+/* ========================================
+   LEVEL CONTENT
+======================================== */
+
+.level-number {
+  color: var(--level-color);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.level-content {
+  min-width: 0;
+}
+
+.level-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.level-heading h3 {
+  margin: 0;
+  color: var(--level-color);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.level-status {
+  color: #697267;
+  font-size: 9px;
+  letter-spacing: 0.5px;
+}
+
+.level-description {
+  margin: 6px 0 10px;
+  color: #969e94;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+/* ========================================
+   GAUGES
+======================================== */
+
+.level-gauge {
+  height: 5px;
+  overflow: hidden;
+  background: #252a27;
+}
+
+.level-gauge-fill {
+  width: 0;
+  height: 100%;
+  background: var(--level-color);
+  box-shadow: 0 0 10px
+    color-mix(in srgb, var(--level-color) 25%, transparent);
+}
+
+.level-gauge-fill.is-animated {
+  width: var(--gauge-progress);
+  transition: width 1200ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--gauge-delay);
+}
+
+/* ========================================
+   RANGE
+======================================== */
+
+.level-range {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+
+  color: #697267;
+  font-size: 9px;
+  text-align: right;
+  letter-spacing: 0.5px;
+}
+
+.level-range span:first-child {
+  color: var(--level-color);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* ========================================
+   FOOTNOTE
+======================================== */
+
+.violentometer-footnote {
+  margin: 15px 0 0;
+  color: #596257;
+  font-size: 8px;
+  letter-spacing: 0.4px;
+  line-height: 1.8;
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+  .violentometer {
+    padding: 30px 6% 40px;
+  }
+
+  .violentometer-title {
+    font-size: clamp(22px, 6vw, 32px);
+    letter-spacing: -1px;
+  }
+
+  .violentometer-level {
+    grid-template-columns: 25px minmax(0, 1fr) 70px;
+    gap: 10px;
+    padding: 12px 10px;
+  }
+
+  .level-heading {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .level-heading h3 {
+    font-size: 10px;
+  }
+
+  .level-status {
+    font-size: 8px;
+  }
+
+  .level-description {
+    font-size: 9px;
+  }
+
+  .level-range {
+    font-size: 8px;
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .violentometer-level,
+  .level-gauge-fill.is-animated {
+    transition: none;
+  }
+}
