@@ -31,3 +31,7 @@ steps:
 
 images:
   - europe-west9-docker.pkg.dev/$PROJECT_ID/no-quarter/no-quarter:$SHORT_SHA
+  
+options:
+  logging: CLOUD_LOGGING_ONLY
+
