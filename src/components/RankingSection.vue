@@ -9,7 +9,7 @@ const errorMessage = ref('')
 
 const sortOptions = [
   { value: 'total', label: 'TOTAL SOULS' },
-  { value: 'record', label: 'BEST RECORD' },
+  { value: 'record', label: 'BEST IN ONE GAME' },
   { value: 'average', label: 'AVERAGE/GAME' },
 ]
 
