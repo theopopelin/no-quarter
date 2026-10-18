@@ -130,9 +130,17 @@
 ======================================== */
 
 .ranking-table {
+  display: flex;
+  flex-direction: column;
+  max-height: 60vh;
+  max-height: 60dvh;
+  min-height: 0;
+  overflow: hidden;
   border: 1px solid #292e29;
   background: #101310;
 }
+
+/* Table header stays visible */
 
 .ranking-table-header,
 .ranking-player {
@@ -143,6 +151,7 @@
 }
 
 .ranking-table-header {
+  flex-shrink: 0;
   padding: 14px 20px;
   border-bottom: 1px solid #292e29;
   background: #131713;
@@ -154,6 +163,24 @@
 .ranking-score-column {
   text-align: right;
 }
+
+/* Internal scrolling with invisible scrollbar */
+
+.ranking-player-list {
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.ranking-player-list::-webkit-scrollbar {
+  display: none;
+}
+
+/* Individual player row */
 
 .ranking-player {
   min-height: 76px;
@@ -327,6 +354,11 @@
   .ranking-title {
     font-size: clamp(25px, 7vw, 36px);
     letter-spacing: -1px;
+  }
+
+  .ranking-table {
+    max-height: 55vh;
+    max-height: 55dvh;
   }
 
   .ranking-table-header,

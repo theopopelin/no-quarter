@@ -41,12 +41,29 @@ onMounted(async () => {
   }
 })
 
+// Classement complet : tri appliqué à tous les joueurs,
+// sans tenir compte de la recherche.
 const sortedPlayers = computed(() => {
+  return [...players.value].sort(
+    (a, b) => b[sortBy.value] - a[sortBy.value]
+  )
+})
+
+// Rang calculé avant le filtrage de la recherche.
+const rankedPlayers = computed(() => {
+  return sortedPlayers.value.map((player, index) => ({
+    ...player,
+    rank: index + 1,
+  }))
+})
+
+// La recherche filtre les joueurs, mais ne modifie pas leur rang.
+const filteredPlayers = computed(() => {
   const query = searchQuery.value.trim().toLowerCase()
 
-  return players.value
-    .filter((player) => player.name.toLowerCase().includes(query))
-    .sort((a, b) => b[sortBy.value] - a[sortBy.value])
+  return rankedPlayers.value.filter((player) =>
+    player.name.toLowerCase().includes(query)
+  )
 })
 </script>
 
@@ -111,22 +128,22 @@ const sortedPlayers = computed(() => {
       </div>
 
       <TransitionGroup
-        v-else-if="sortedPlayers.length"
+        v-else-if="filteredPlayers.length"
         name="ranking-row"
         tag="div"
         class="ranking-player-list"
       >
         <article
-          v-for="(player, index) in sortedPlayers"
+          v-for="(player, index) in filteredPlayers"
           :key="player.id"
           class="ranking-player"
           :style="{ '--row-index': index }"
         >
           <span
             class="ranking-position"
-            :class="{ 'ranking-position-first': index === 0 }"
+            :class="{ 'ranking-position-first': player.rank === 1 }"
           >
-            {{ String(index + 1).padStart(2, '0') }}
+            {{ String(player.rank).padStart(2, '0') }}
           </span>
 
           <div class="ranking-player-info">
@@ -156,7 +173,7 @@ const sortedPlayers = computed(() => {
         <p class="ranking-empty-description">
           {{
             searchQuery
-              ? 'Try another player name.'
+              ? 'Try another name.'
               : 'Tracked players will appear here once data is available.'
           }}
         </p>

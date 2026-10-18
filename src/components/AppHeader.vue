@@ -39,6 +39,16 @@ const emit = defineEmits(['navigate'])
       >
         RANKING
       </a>
+
+      <a
+        class="header-nav-link"
+        href="#clips"
+        :class="{ active: currentPage === 'clips' }"
+        :aria-current="currentPage === 'clips' ? 'page' : undefined"
+        @click.prevent="emit('navigate', 'clips')"
+      >
+        CLIPS
+      </a>
     </nav>
 
     <a
