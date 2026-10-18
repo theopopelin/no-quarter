@@ -1,11 +1,13 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue'
 import { fetchClips } from '../services/clipsService.js'
+import CustomVideoPlayer from './CustomVideoPlayer.vue'
 import '../assets/css/ClipsSection.css'
 
 const clips = ref([])
 const isLoading = ref(true)
 const errorMessage = ref('')
+const expandedClipId = ref(null)
 
 const sortedClips = computed(() =>
   [...clips.value]
@@ -40,6 +42,11 @@ function formatDate(date) {
     month: 'short',
     year: 'numeric',
   }).format(parsedDate)
+}
+
+function toggleExpanded(clipId) {
+  expandedClipId.value =
+    expandedClipId.value === clipId ? null : clipId
 }
 </script>
 
@@ -84,16 +91,17 @@ function formatDate(date) {
         v-for="clip in sortedClips"
         :key="clip.id"
         class="clip-card"
+        :class="{
+          'clip-card-expanded': expandedClipId === clip.id,
+        }"
       >
         <div class="clip-player">
-          <video
-            controls
-            playsinline
-            preload="metadata"
+          <CustomVideoPlayer
             :src="clip.video_url"
-          >
-            Your browser does not support video playback.
-          </video>
+            :label="clip.author || 'COMMUNITY CLIP'"
+            :expanded="expandedClipId === clip.id"
+            @toggle-expand="toggleExpanded(clip.id)"
+          />
         </div>
 
         <div class="clip-info">
@@ -104,10 +112,14 @@ function formatDate(date) {
 
           <div class="clip-meta">
             <time :datetime="clip.published_at">
-              {{ formatDate(clip.published_at) }}
+              Posted {{ formatDate(clip.published_at) }}
             </time>
 
-            <span class="clip-votes">
+            <span
+              class="clip-votes"
+              :aria-label="`${clip.votes ?? 0} upvotes`"
+              title="Community upvotes"
+            >
               <span aria-hidden="true">UPVOTES ▲</span>
               {{ clip.votes ?? 0 }}
             </span>
