@@ -47,7 +47,7 @@ function formatDate(date) {
   <section id="clips" class="clips-section">
     <header class="clips-heading">
       <p class="clips-eyebrow">
-        <span>03 /</span> COMMUNITY
+        <span>03 /</span> DEATHWISH
       </p>
 
       <h1 class="clips-title">
