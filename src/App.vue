@@ -8,6 +8,7 @@ import ViolentometerSection from './components/ViolentometerSection.vue'
 import MostWantedSection from './components/MostWantedSection.vue'
 import AppFooter from './components/AppFooter.vue'
 import RankingSection from './components/RankingSection.vue'
+import ClipsSection from './components/ClipsSection.vue'
 
 const currentPage = ref('home')
 
@@ -186,7 +187,9 @@ function navigateTo(page) {
         <MostWantedSection />
       </template>
 
-      <RankingSection v-else />
+      <RankingSection v-else-if="currentPage === 'ranking'" />
+
+      <ClipsSection v-else-if="currentPage === 'clips'" />
     </main>
 
     <AppFooter />

@@ -1,0 +1,240 @@
+/* ========================================
+   CLIPS SECTION
+======================================== */
+
+.clips-section {
+  padding: 35px 7% 70px;
+  color: #e6e7e3;
+}
+
+.clips-heading {
+  margin-bottom: 30px;
+}
+
+.clips-eyebrow {
+  margin: 0 0 14px;
+  color: #969e94;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+}
+
+.clips-eyebrow span {
+  margin-right: 8px;
+  color: #F32E51;
+}
+
+.clips-title {
+  margin: 0;
+  color: #e6e7e3;
+  font-size: clamp(28px, 5vw, 46px);
+  font-weight: 700;
+  letter-spacing: -2px;
+  line-height: 1.2;
+}
+
+.clips-title span {
+  color: #F32E51;
+}
+
+.clips-description {
+  margin: 12px 0 0;
+  color: #969e94;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* ========================================
+   CLIPS GRID
+======================================== */
+
+.clips-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.clip-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #292e29;
+  background: #101310;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease;
+}
+
+.clip-card:hover {
+  border-color: #F32E51;
+  background: #131713;
+}
+
+/* ========================================
+   VIDEO PLAYER
+======================================== */
+
+.clip-player {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #050605;
+}
+
+.clip-player video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ========================================
+   CLIP INFORMATION
+======================================== */
+
+.clip-info {
+  padding: 16px 18px;
+  border-top: 1px solid #292e29;
+}
+
+.clip-author {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  color: #e6e7e3;
+  font-size: 15px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.clip-status-dot {
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+  background: #F32E51;
+  border-radius: 50%;
+}
+
+.clip-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 12px;
+  color: #697267;
+  font-size: 9px;
+  letter-spacing: 0.5px;
+}
+
+.clip-votes {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #c5ff65;
+  font-size: 11px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.clip-source {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  color: #858b85;
+  font-size: 9px;
+  letter-spacing: 0.8px;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.clip-source:hover {
+  color: #F32E51;
+}
+
+.clip-source:focus-visible {
+  outline: 1px solid #c5ff65;
+  outline-offset: 4px;
+}
+
+/* ========================================
+   EMPTY / LOADING STATES
+======================================== */
+
+.clips-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 55px 20px;
+  border: 1px solid #292e29;
+  background: #101310;
+  text-align: center;
+}
+
+.clips-empty-icon {
+  color: #F32E51;
+  font-size: 28px;
+}
+
+.clips-empty-title {
+  margin: 16px 0 0;
+  color: #e6e7e3;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.clips-empty-description {
+  margin: 10px 0 0;
+  color: #697267;
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+.clips-error {
+  color: #F32E51;
+}
+
+.clips-footnote {
+  margin: 15px 0 0;
+  color: #596257;
+  font-size: 9px;
+  letter-spacing: 0.4px;
+  line-height: 1.8;
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 800px) {
+  .clips-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .clips-section {
+    padding: 30px 6% 45px;
+  }
+
+  .clips-title {
+    font-size: clamp(25px, 7vw, 36px);
+    letter-spacing: -1px;
+  }
+
+  .clip-info {
+    padding: 14px 12px;
+  }
+}
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .clip-card,
+  .clip-source {
+    transition: none;
+  }
+}
