@@ -55,7 +55,7 @@ function formatDate(date) {
       </h1>
 
       <p class="clips-description">
-        The plays worth watching.
+        Witness true harvesting finesse.
       </p>
     </header>
 
@@ -108,7 +108,7 @@ function formatDate(date) {
             </time>
 
             <span class="clip-votes">
-              <span aria-hidden="true">▲</span>
+              <span aria-hidden="true">UPVOTES ▲</span>
               {{ clip.votes ?? 0 }}
             </span>
           </div>
@@ -128,7 +128,7 @@ function formatDate(date) {
     </div>
 
     <p class="clips-footnote">
-      COMMUNITY CLIPS APPROVED BY DEATHWISH ADMINS.
+      COMMUNITY CLIPS APPROVED BY THE DEATHWISH FOUNDATION OPERATORS.
     </p>
   </section>
 </template>
