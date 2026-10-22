@@ -15,24 +15,29 @@ const records = computed(() => {
   const categories = [
     {
       id: 'soul-reaper',
-      title: '"THE COLLECTOR"',
+      title: '"THE DISASTER"',
       subtitle: 'MOST SOULS IN ONE GAME',
-      value: (player) => player.personal_record?.procs ?? 0,
+      value: (player) => Number(player.personal_record?.procs ?? 0),
       format: (value) => `${value} SOULS`,
     },
     {
       id: 'harvest-machine',
       title: '"HARVEST MACHINE"',
       subtitle: 'TOTAL SOULS COLLECTED',
-      value: (player) => player.total_dark_harvest_procs ?? 0,
+      value: (player) => Number(player.total_dark_harvest_procs ?? 0),
       format: (value) => `${value} SOULS`,
     },
     {
-      id: 'no-lifer',
-      title: '"NO LIFER"',
-      subtitle: 'GAMES WITH DARK HARVEST',
-      value: (player) => player.games_with_dark_harvest ?? 0,
-      format: (value) => `${value} GAMES`,
+      id: 'soul-efficiency',
+      title: '"MIN-MAXING DEMON"',
+      subtitle: 'BEST AVERAGE PER GAME',
+      value: (player) => {
+        const games = Number(player.games_with_dark_harvest ?? 0)
+        const total = Number(player.total_dark_harvest_procs ?? 0)
+
+        return games > 0 ? total / games : 0
+      },
+      format: (value) => `${value.toFixed(2)} SOULS/GAME`,
     },
   ]
 
